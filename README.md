@@ -10,7 +10,7 @@
   <img src="info/800px-DUALSHOCK4_03.jpg">
 </p>
 <p align="center">
-  <strong><a href="info/getting_started.md">Getting Started</a>| <a href="http://docs.rs/dual_shock4_controller">Documentation</a> | |  <a href="https://www.zhihu.com/people/ookicent">Blog</a> </strong>
+  <strong><a href="info/getting_started.md">Getting Started</a>| <a href="http://docs.rs/dual_shock4_controller">Documentation</a> | <a href="https://www.zhihu.com/people/ookicent">Blog</a> </strong>
 </p>
 
 # dual-shock4-controller
