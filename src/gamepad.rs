@@ -3,17 +3,10 @@
 * FileName:  gamepad.rs  
 * Author: http://www.ookicent.com
 * Date: 2020-08-19  10:36
-* Version: 1.0.0
+* Version: 0.1.1
 * Description: 
 **********************************************************/
 
-
-#[derive(Copy, Clone, Debug)]
-pub struct  TouchPad{
-    pub x:u32,
-    pub y:u32,
-    pub is_active:bool
-}
 #[derive(Copy, Clone, Debug)]
 pub struct  StickInfo{
     pub x:u8,

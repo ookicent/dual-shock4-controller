@@ -3,7 +3,7 @@
 * FileName:  joystick.rs  
 * Author: http://www.ookicent.com
 * Date: 2020-08-19  10:36
-* Version: 1.0.0
+* Version: 0.1.1
 * Description: 
 **********************************************************/
 
