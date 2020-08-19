@@ -1,0 +1,19 @@
+[package]
+name = "dual-shock4-controller"
+version = "0.1.0"
+authors = ["ookicent <ookicent@foxmail.com>"]
+edition = "2018"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+description = "Sony DualShock 4 Controller for Rust"
+keywords = ["sony", "playstation", "dualshock"]
+homepage = "https://github.com/ookicent/dual-shock4-controller"
+repository = "https://github.com/ookicent/dual-shock4-controller.git"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+include = [
+    "src/*.rs",
+    "Cargo.toml",
+]
+
+[dependencies]
+hidapi ={ version = "1.2.3"}
