@@ -28,20 +28,38 @@ dual-shock4-controller = "0.1.0"
 ## How To Use
 
 ```rust
-    use dual_shock4_controller::joystick::{DeviceInfo,Joystick};
-    
-    let joystick = Joystick::new();
-    let device_info = DeviceInfo{vid:0x054c,pid:0x05c4};//HID\VID_054C&PID_05C4\7&3869AC07&0&0000
-    let device = joystick.connect(device_info).expect("can't find device!");//
+use dual_shock4_controller::joystick::{DeviceInfo, Joystick};
+
+pub fn main() {
+    let device_info = DeviceInfo {
+        vid: 0x054c,
+        pid: 0x05c4,
+    }; //HID\VID_054C&PID_05C4\7&3869AC07&0&0000
+    let mut joystick = Joystick::new(device_info).unwrap_or_else(|e| {
+        eprintln!("{:#?}", e);
+        std::process::exit(1);
+    });
+
     loop {
-        let mut buf = [0u8;64];
-        device.read_timeout(&mut buf[..], 1000).unwrap();
+        let mut buf = [0u8; 64];
+        joystick.read_timeout(&mut buf[..], 1000).unwrap();
         let gamepad = joystick.get_gamepad().get_state(&buf);
         if gamepad.x_button.pressed {
             println!("× button is pressed");
-            break;
         }
+
+        let y = gamepad.stick.right_stick.y;
+
+        if y <= 127 {
+            let power = (127 - y) * 2; //map [127, 0] to [0, 255]
+
+            joystick.set_color(power, 0, 0);
+            joystick.set_rumble(power, power);
+        }
+
+        joystick.update_led_and_rumble();
     }
+}
 ```
 
 ## License
